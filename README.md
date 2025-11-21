@@ -1,0 +1,45 @@
+# MSSQL Read-Only MCP Server
+
+A lightweight, read-only MSSQL MCP server.
+
+## Features
+
+- **Read-Only by Design** - Safe database querying with no write operations
+- **Single File Implementation** - All code in one easy-to-understand file (~240 lines)
+- **Three Essential Tools** - List tables, describe structure, query data
+
+## Installation
+
+```bash
+npm install
+npm run build
+```
+
+## Configuration
+
+Required environment variables:
+- `SERVER_NAME` - MSSQL server hostname
+- `DATABASE_NAME` - Database name
+- `SQL_USER` - SQL authentication username
+- `SQL_PASSWORD` - SQL authentication password
+
+Optional environment variables:
+- `SQL_PORT` - Port number (default: 1433)
+- `TRUST_SERVER_CERTIFICATE` - Set to "true" to trust self-signed certs (default: false)
+- `CONNECTION_TIMEOUT` - Connection timeout in seconds (default: 30)
+
+## Usage with Claude Code
+
+```bash
+claude mcp add-json mssql-read-only-mcp '{"type":"stdio","command":"node","args":["<PATH_TO>/mssql-read-only-mcp/dist/index.js"],"env":{"SERVER_NAME":"your-server.database.windows.net","DATABASE_NAME":"YourDatabase","SQL_USER":"username","SQL_PASSWORD":"password","SQL_PORT":"1433","TRUST_SERVER_CERTIFICATE":"false"}}'
+```
+
+## Available Tools
+
+- `list_table` - List all tables in the database (with optional schema filter)
+- `describe_table` - Show table structure (columns and types)
+- `read_data` - Execute SELECT queries
+
+## License
+
+MIT

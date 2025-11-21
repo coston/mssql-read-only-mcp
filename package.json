@@ -1,0 +1,26 @@
+{
+  "name": "mssql-read-only-mcp",
+  "version": "1.0.0",
+  "description": "Read-Only MSSQL MCP Server with SQL Authentication",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mssql-read-only-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": ["mcp", "mssql", "sql-server", "database"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "mssql": "^11.0.1"
+  },
+  "devDependencies": {
+    "@types/mssql": "^9.1.7",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
