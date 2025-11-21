@@ -7,13 +7,31 @@
   "bin": {
     "mssql-read-only-mcp": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "preversion": "npm run build"
   },
-  "keywords": ["mcp", "mssql", "sql-server", "database"],
+  "keywords": [
+    "mcp",
+    "mssql",
+    "sql-server",
+    "database"
+  ],
   "author": "",
   "license": "MIT",
+  "homepage": "https://github.com/coston/mssql-read-only-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coston/mssql-read-only-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coston/mssql-read-only-mcp/issues"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "mssql": "^11.0.1"
