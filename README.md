@@ -16,20 +16,16 @@ No installation required! Use npx to run the server directly:
 
 #### With Claude Code CLI
 
+**Bash/Zsh (macOS/Linux):**
+
 ```bash
-claude mcp add --transport stdio mssql-read-only \
-  --env SERVER_NAME=your-server.database.windows.net \
-  --env DATABASE_NAME=YourDatabase \
-  --env SQL_USER=username \
-  --env SQL_PASSWORD=password \
-  --env SQL_PORT=1433 \
-  --env TRUST_SERVER_CERTIFICATE=false \
-  -- npx -y mssql-read-only-mcp
+claude mcp add-json mssql-read-only-mcp '{"type":"stdio","command":"npx","args":["-y","mssql-read-only-mcp"],"env":{"SERVER_NAME":"your-server.database.windows.net","DATABASE_NAME":"YourDatabase","SQL_USER":"username","SQL_PASSWORD":"password","SQL_PORT":"1433","TRUST_SERVER_CERTIFICATE":"false"}}'
 ```
 
-**Windows users**: On native Windows (not WSL), use:
-```bash
-claude mcp add --transport stdio mssql-read-only --env SERVER_NAME=... -- cmd /c npx -y mssql-read-only-mcp
+**PowerShell (Windows):**
+
+```powershell
+claude mcp add-json mssql-read-only-mcp '{"type":"stdio","command":"npx","args":["-y","mssql-read-only-mcp"],"env":{"SERVER_NAME":"your-server.database.windows.net","DATABASE_NAME":"YourDatabase","SQL_USER":"username","SQL_PASSWORD":"password","SQL_PORT":"1433","TRUST_SERVER_CERTIFICATE":"false"}}'
 ```
 
 #### With Claude Desktop
@@ -89,12 +85,7 @@ npm run build
 Then configure with the local path:
 
 ```bash
-claude mcp add --transport stdio mssql-read-only \
-  --env SERVER_NAME=your-server.database.windows.net \
-  --env DATABASE_NAME=YourDatabase \
-  --env SQL_USER=username \
-  --env SQL_PASSWORD=password \
-  -- node /path/to/mssql-read-only-mcp/dist/index.js
+claude mcp add-json mssql-read-only-mcp '{"type":"stdio","command":"node","args":["/path/to/mssql-read-only-mcp/dist/index.js"],"env":{"SERVER_NAME":"your-server.database.windows.net","DATABASE_NAME":"YourDatabase","SQL_USER":"username","SQL_PASSWORD":"password","SQL_PORT":"1433","TRUST_SERVER_CERTIFICATE":"false"}}'
 ```
 
 ## Configuration
@@ -115,6 +106,10 @@ Optional environment variables:
 - `list_table` - List all tables in the database (with optional schema filter)
 - `describe_table` - Show table structure (columns and types)
 - `read_data` - Execute SELECT queries
+
+## Development
+
+For contributors, see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
 
 ## License
 

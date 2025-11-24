@@ -32,3 +32,12 @@ Thumbs.db
 *.tmp
 *.temp
 nul
+
+# Test artifacts
+.test-db-connection.json
+
+# Coverage reports
+coverage/
+
+# Development files
+plans/
